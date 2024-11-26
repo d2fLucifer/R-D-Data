@@ -61,3 +61,12 @@ docker-compose.override.yml
 # Environment files
 *.env              # Environment variables
 .env.*             # Environment variable files for specific stages
+# Ignore the 'airflow-logs' folder
+airflow-logs/
+
+# Ignore other folders or files
+node_modules/
+*.log
+*.env
+
+volumes/
