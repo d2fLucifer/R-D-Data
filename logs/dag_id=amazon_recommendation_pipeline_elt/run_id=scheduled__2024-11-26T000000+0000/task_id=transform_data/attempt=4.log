@@ -1,0 +1,41 @@
+[2024-11-27T04:34:58.307+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-27T04:34:58.328+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline_elt.transform_data scheduled__2024-11-26T00:00:00+00:00 [queued]>
+[2024-11-27T04:34:58.334+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline_elt.transform_data scheduled__2024-11-26T00:00:00+00:00 [queued]>
+[2024-11-27T04:34:58.335+0000] {taskinstance.py:2306} INFO - Starting attempt 4 of 4
+[2024-11-27T04:34:58.345+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transform_data> on 2024-11-26 00:00:00+00:00
+[2024-11-27T04:34:58.352+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'amazon_recommendation_pipeline_elt', 'transform_data', 'scheduled__2024-11-26T00:00:00+00:00', '--job-id', '120', '--raw', '--subdir', 'DAGS_FOLDER/amazon_recommendation_dag.py', '--cfg-path', '/tmp/tmpwvhq0o7h']
+[2024-11-27T04:34:58.352+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=20504) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-27T04:34:58.353+0000] {standard_task_runner.py:91} INFO - Job 120: Subtask transform_data
+[2024-11-27T04:34:58.353+0000] {standard_task_runner.py:63} INFO - Started process 20511 to run task
+[2024-11-27T04:34:58.391+0000] {task_command.py:426} INFO - Running <TaskInstance: amazon_recommendation_pipeline_elt.transform_data scheduled__2024-11-26T00:00:00+00:00 [running]> on host bece637e0b85
+[2024-11-27T04:34:58.474+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='amazon_recommendation_pipeline_elt' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-26T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-26T00:00:00+00:00'
+[2024-11-27T04:34:58.475+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-27T04:34:58.476+0000] {spark_transform_task.py:37} INFO - Using processed file path: None
+[2024-11-27T04:34:58.476+0000] {spark_transform_task.py:41} ERROR - Processed file path does not exist: None
+[2024-11-27T04:34:58.476+0000] {spark_transform_task.py:78} ERROR - File not found: Processed file not found: None
+[2024-11-27T04:34:58.477+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-27T04:34:58.477+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/tasks/spark_transform_task.py", line 42, in transform_data
+    raise FileNotFoundError(f"Processed file not found: {processed_file_path}")
+FileNotFoundError: Processed file not found: None
+[2024-11-27T04:34:58.485+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=amazon_recommendation_pipeline_elt, task_id=transform_data, run_id=scheduled__2024-11-26T00:00:00+00:00, execution_date=20241126T000000, start_date=20241127T043458, end_date=20241127T043458
+[2024-11-27T04:34:58.507+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 120 for task transform_data (Processed file not found: None; 20511)
+[2024-11-27T04:34:58.527+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-27T04:34:58.537+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-27T04:34:58.552+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

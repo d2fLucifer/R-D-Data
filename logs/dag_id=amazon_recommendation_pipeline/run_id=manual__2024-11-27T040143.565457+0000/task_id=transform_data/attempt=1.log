@@ -1,0 +1,68 @@
+[2024-11-27T04:01:50.526+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-27T04:01:50.556+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline.transform_data manual__2024-11-27T04:01:43.565457+00:00 [queued]>
+[2024-11-27T04:01:50.564+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline.transform_data manual__2024-11-27T04:01:43.565457+00:00 [queued]>
+[2024-11-27T04:01:50.565+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 4
+[2024-11-27T04:01:50.581+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transform_data> on 2024-11-27 04:01:43.565457+00:00
+[2024-11-27T04:01:50.590+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'amazon_recommendation_pipeline', 'transform_data', 'manual__2024-11-27T04:01:43.565457+00:00', '--job-id', '80', '--raw', '--subdir', 'DAGS_FOLDER/amazon_recommendation_dag.py', '--cfg-path', '/tmp/tmp1q4gm21b']
+[2024-11-27T04:01:50.592+0000] {standard_task_runner.py:91} INFO - Job 80: Subtask transform_data
+[2024-11-27T04:01:50.594+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1431) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-27T04:01:50.595+0000] {standard_task_runner.py:63} INFO - Started process 1433 to run task
+[2024-11-27T04:01:50.645+0000] {task_command.py:426} INFO - Running <TaskInstance: amazon_recommendation_pipeline.transform_data manual__2024-11-27T04:01:43.565457+00:00 [running]> on host bece637e0b85
+[2024-11-27T04:01:50.776+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='amazon_recommendation_pipeline' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-27T04:01:43.565457+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-27T04:01:43.565457+00:00'
+[2024-11-27T04:01:50.779+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-27T04:01:50.781+0000] {spark_transform_task.py:33} INFO - Using RAW_DATA_PATH: /opt/***/dags/tasks/raw_data_20241127_040148.json
+[2024-11-27T04:01:50.781+0000] {spark_transform_task.py:34} INFO - Using PROCESSED_DATA_PATH: /opt/***/dags/tasks
+[2024-11-27T04:01:50.786+0000] {spark_transform_task.py:38} INFO - Ensured processed data path exists: /opt/***/dags/tasks
+[2024-11-27T04:01:50.787+0000] {spark_transform_task.py:41} INFO - Initializing Spark session...
+[2024-11-27T04:01:53.260+0000] {spark_transform_task.py:47} INFO - Spark session initialized successfully.
+[2024-11-27T04:01:53.260+0000] {spark_transform_task.py:50} INFO - Loading raw data from /opt/***/dags/tasks/raw_data_20241127_040148.json...
+[2024-11-27T04:01:56.489+0000] {spark_transform_task.py:52} INFO - Raw data loaded into Spark DataFrame with 170 rows.
+[2024-11-27T04:01:56.490+0000] {spark_transform_task.py:55} INFO - Schema of loaded DataFrame:
+[2024-11-27T04:01:56.491+0000] {logging_mixin.py:188} INFO - root
+ |-- _corrupt_record: string (nullable = true)
+[2024-11-27T04:01:56.511+0000] {spark_transform_task.py:62} INFO - Performing data transformations...
+[2024-11-27T04:01:56.560+0000] {spark_transform_task.py:80} ERROR - An error occurred during data transformation: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `price` cannot be resolved. Did you mean one of the following? [`_corrupt_record`].;
+'Filter (isnotnull('price) AND NOT ('price = N/A))
++- Relation [_corrupt_record#8] json
+
+[2024-11-27T04:01:56.560+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-27T04:01:56.561+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/tasks/spark_transform_task.py", line 63, in transform_data
+    processed_df = (df.filter((col("price").isNotNull()) & (col("price") != "N/A"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyspark/sql/dataframe.py", line 3138, in filter
+    jdf = self._jdf.filter(condition._jc)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyspark/errors/exceptions/captured.py", line 175, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.AnalysisException: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `price` cannot be resolved. Did you mean one of the following? [`_corrupt_record`].;
+'Filter (isnotnull('price) AND NOT ('price = N/A))
++- Relation [_corrupt_record#8] json
+
+[2024-11-27T04:01:56.573+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=amazon_recommendation_pipeline, task_id=transform_data, run_id=manual__2024-11-27T04:01:43.565457+00:00, execution_date=20241127T040143, start_date=20241127T040150, end_date=20241127T040156
+[2024-11-27T04:01:56.585+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 80 for task transform_data ([UNRESOLVED_COLUMN.WITH_SUGGESTION] A column or function parameter with name `price` cannot be resolved. Did you mean one of the following? [`_corrupt_record`].;
+'Filter (isnotnull('price) AND NOT ('price = N/A))
++- Relation [_corrupt_record#8] json
+; 1433)
+[2024-11-27T04:01:56.619+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-27T04:01:56.639+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-27T04:01:56.641+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

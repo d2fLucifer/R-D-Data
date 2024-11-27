@@ -1,0 +1,50 @@
+[2024-11-27T04:09:37.667+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-27T04:09:37.692+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline.transform_data manual__2024-11-27T04:04:24.388587+00:00 [queued]>
+[2024-11-27T04:09:37.698+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline.transform_data manual__2024-11-27T04:04:24.388587+00:00 [queued]>
+[2024-11-27T04:09:37.700+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 4
+[2024-11-27T04:09:37.711+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transform_data> on 2024-11-27 04:04:24.388587+00:00
+[2024-11-27T04:09:37.719+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'amazon_recommendation_pipeline', 'transform_data', 'manual__2024-11-27T04:04:24.388587+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/amazon_recommendation_dag.py', '--cfg-path', '/tmp/tmpkrdsygle']
+[2024-11-27T04:09:37.721+0000] {standard_task_runner.py:91} INFO - Job 92: Subtask transform_data
+[2024-11-27T04:09:37.722+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=6509) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-27T04:09:37.723+0000] {standard_task_runner.py:63} INFO - Started process 6511 to run task
+[2024-11-27T04:09:37.759+0000] {task_command.py:426} INFO - Running <TaskInstance: amazon_recommendation_pipeline.transform_data manual__2024-11-27T04:04:24.388587+00:00 [running]> on host bece637e0b85
+[2024-11-27T04:09:37.827+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='amazon_recommendation_pipeline' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-27T04:04:24.388587+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-27T04:04:24.388587+00:00'
+[2024-11-27T04:09:37.829+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-27T04:09:37.830+0000] {spark_transform_task.py:26} INFO - Using RAW_DATA_PATH: /opt/***/dags/tasks/raw_data_20241127_040429.json
+[2024-11-27T04:09:37.830+0000] {spark_transform_task.py:27} INFO - Using PROCESSED_DATA_PATH: /opt/***/dags/tasks
+[2024-11-27T04:09:37.832+0000] {spark_transform_task.py:36} INFO - Ensured processed data path exists: /opt/***/dags/tasks
+[2024-11-27T04:09:37.832+0000] {spark_transform_task.py:39} INFO - Initializing Spark session...
+[2024-11-27T04:09:40.184+0000] {spark_transform_task.py:45} INFO - Spark session initialized successfully.
+[2024-11-27T04:09:40.185+0000] {spark_transform_task.py:48} INFO - Loading raw data from /opt/***/dags/tasks/raw_data_20241127_040429.json...
+[2024-11-27T04:09:43.473+0000] {spark_transform_task.py:50} INFO - Raw data loaded into Spark DataFrame with 226 rows.
+[2024-11-27T04:09:43.473+0000] {spark_transform_task.py:53} INFO - Schema of loaded DataFrame:
+[2024-11-27T04:09:43.475+0000] {logging_mixin.py:188} INFO - root
+ |-- _corrupt_record: string (nullable = true)
+[2024-11-27T04:09:43.503+0000] {spark_transform_task.py:61} ERROR - Column 'price' not found in raw data!
+[2024-11-27T04:09:43.504+0000] {spark_transform_task.py:83} ERROR - An error occurred during data transformation: Column 'price' not found in raw data!
+[2024-11-27T04:09:43.504+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-27T04:09:43.505+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/tasks/spark_transform_task.py", line 62, in transform_data
+    raise ValueError("Column 'price' not found in raw data!")
+ValueError: Column 'price' not found in raw data!
+[2024-11-27T04:09:43.514+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=amazon_recommendation_pipeline, task_id=transform_data, run_id=manual__2024-11-27T04:04:24.388587+00:00, execution_date=20241127T040424, start_date=20241127T040937, end_date=20241127T040943
+[2024-11-27T04:09:43.527+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 92 for task transform_data (Column 'price' not found in raw data!; 6511)
+[2024-11-27T04:09:43.556+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-27T04:09:43.575+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-27T04:09:43.577+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

@@ -1,0 +1,54 @@
+[2024-11-27T02:12:09.762+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-11-27T02:12:09.790+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline.transform_data scheduled__2024-11-26T00:00:00+00:00 [queued]>
+[2024-11-27T02:12:09.799+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: amazon_recommendation_pipeline.transform_data scheduled__2024-11-26T00:00:00+00:00 [queued]>
+[2024-11-27T02:12:09.800+0000] {taskinstance.py:2306} INFO - Starting attempt 3 of 4
+[2024-11-27T02:12:09.810+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): transform_data> on 2024-11-26 00:00:00+00:00
+[2024-11-27T02:12:09.816+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'amazon_recommendation_pipeline', 'transform_data', 'scheduled__2024-11-26T00:00:00+00:00', '--job-id', '68', '--raw', '--subdir', 'DAGS_FOLDER/amazon_recommendation_dag.py', '--cfg-path', '/tmp/tmpm4muddv0']
+[2024-11-27T02:12:09.817+0000] {standard_task_runner.py:91} INFO - Job 68: Subtask transform_data
+[2024-11-27T02:12:09.819+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=5583) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-11-27T02:12:09.819+0000] {standard_task_runner.py:63} INFO - Started process 5585 to run task
+[2024-11-27T02:12:09.854+0000] {task_command.py:426} INFO - Running <TaskInstance: amazon_recommendation_pipeline.transform_data scheduled__2024-11-26T00:00:00+00:00 [running]> on host 0db19616cf8d
+[2024-11-27T02:12:09.917+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='amazon_recommendation_pipeline' AIRFLOW_CTX_TASK_ID='transform_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-26T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-26T00:00:00+00:00'
+[2024-11-27T02:12:09.918+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-11-27T02:12:09.919+0000] {spark_transform_task.py:28} INFO - Ensured processed data path exists: ./data/processed
+[2024-11-27T02:12:09.919+0000] {spark_transform_task.py:31} INFO - Initializing Spark session...
+[2024-11-27T02:12:10.033+0000] {spark_transform_task.py:67} ERROR - An error occurred: [JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.
+[2024-11-27T02:12:10.034+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-11-27T02:12:10.035+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/tasks/spark_transform_task.py", line 36, in transform_data
+    .getOrCreate()
+     ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyspark/context.py", line 201, in __init__
+    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyspark/context.py", line 436, in _ensure_initialized
+    SparkContext._gateway = gateway or launch_gateway(conf)
+                                       ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/pyspark/java_gateway.py", line 107, in launch_gateway
+    raise PySparkRuntimeError(
+pyspark.errors.exceptions.base.PySparkRuntimeError: [JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.
+[2024-11-27T02:12:10.042+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=amazon_recommendation_pipeline, task_id=transform_data, run_id=scheduled__2024-11-26T00:00:00+00:00, execution_date=20241126T000000, start_date=20241127T021209, end_date=20241127T021210
+[2024-11-27T02:12:10.052+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 68 for task transform_data ([JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.; 5585)
+[2024-11-27T02:12:10.073+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2024-11-27T02:12:10.088+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-11-27T02:12:10.090+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

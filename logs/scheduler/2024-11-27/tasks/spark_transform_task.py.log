@@ -1,0 +1,72 @@
+[2024-11-27T04:30:11.900+0000] {processor.py:161} INFO - Started process (PID=17891) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:30:11.900+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:30:11.901+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:30:11.901+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:30:11.963+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:30:11.963+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:30:11.964+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:30:11.975+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.080 seconds
+[2024-11-27T04:30:42.129+0000] {processor.py:161} INFO - Started process (PID=18166) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:30:42.130+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:30:42.131+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:30:42.131+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:30:42.197+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:30:42.197+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:30:42.197+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:30:42.207+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.082 seconds
+[2024-11-27T04:31:12.474+0000] {processor.py:161} INFO - Started process (PID=18421) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:31:12.475+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:31:12.476+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:31:12.476+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:31:12.539+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:31:12.539+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:31:12.540+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:31:12.552+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.083 seconds
+[2024-11-27T04:31:42.825+0000] {processor.py:161} INFO - Started process (PID=18697) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:31:42.826+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:31:42.826+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:31:42.826+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:31:42.888+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:31:42.888+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:31:42.889+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:31:42.898+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.077 seconds
+[2024-11-27T04:32:13.133+0000] {processor.py:161} INFO - Started process (PID=18970) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:32:13.135+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:32:13.136+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:32:13.135+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:32:13.203+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:32:13.203+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:32:13.204+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:32:13.217+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.090 seconds
+[2024-11-27T04:32:43.603+0000] {processor.py:161} INFO - Started process (PID=19243) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:32:43.604+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:32:43.605+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:32:43.605+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:32:43.672+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:32:43.672+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:32:43.672+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:32:43.682+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.083 seconds
+[2024-11-27T04:33:14.372+0000] {processor.py:161} INFO - Started process (PID=19516) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:33:14.373+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:33:14.374+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:33:14.374+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:33:14.435+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:33:14.434+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:33:14.435+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:33:14.443+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.076 seconds
+[2024-11-27T04:33:44.741+0000] {processor.py:161} INFO - Started process (PID=19792) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:33:44.742+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:33:44.742+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:33:44.742+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:33:44.805+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:33:44.805+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:33:44.806+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:33:44.816+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.080 seconds
+[2024-11-27T04:34:14.989+0000] {processor.py:161} INFO - Started process (PID=20065) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:34:14.990+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:34:14.991+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:34:14.991+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:34:15.054+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:34:15.054+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:34:15.055+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:34:15.066+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.081 seconds
+[2024-11-27T04:34:45.356+0000] {processor.py:161} INFO - Started process (PID=20344) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:34:45.357+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:34:45.357+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:34:45.357+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:34:45.422+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:34:45.422+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:34:45.422+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:34:45.431+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.080 seconds
+[2024-11-27T04:35:15.713+0000] {processor.py:161} INFO - Started process (PID=20623) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:35:15.714+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:35:15.715+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:35:15.715+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:35:15.783+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:35:15.782+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:35:15.783+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:35:15.793+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.084 seconds
+[2024-11-27T04:35:46.180+0000] {processor.py:161} INFO - Started process (PID=20899) to work on /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:35:46.180+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tasks/spark_transform_task.py for tasks to queue
+[2024-11-27T04:35:46.181+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:35:46.181+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:35:46.246+0000] {logging_mixin.py:188} INFO - [2024-11-27T04:35:46.246+0000] {spark_transform_task.py:20} ERROR - Raw data file does not exist at: /path/to/your/data/raw_data.json
+[2024-11-27T04:35:46.247+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/tasks/spark_transform_task.py
+[2024-11-27T04:35:46.256+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tasks/spark_transform_task.py took 0.081 seconds

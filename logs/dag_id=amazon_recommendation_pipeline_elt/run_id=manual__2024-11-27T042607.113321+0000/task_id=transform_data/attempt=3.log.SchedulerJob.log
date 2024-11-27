@@ -1,0 +1,1 @@
+[2024-11-27T07:47:20.609+0000] {scheduler_job_runner.py:769} ERROR - Executor reports task instance <TaskInstance: amazon_recommendation_pipeline_elt.transform_data manual__2024-11-27T04:26:07.113321+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?
