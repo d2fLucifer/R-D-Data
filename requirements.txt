@@ -4,3 +4,4 @@ beautifulsoup4
 sentence-transformers
 pymilvus
 pyspark
+pyarrow
